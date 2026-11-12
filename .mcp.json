@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "shopping-db": {
+      "type": "stdio",
+      "command": "C:/Users/aibek/Desktop/ShoppingList/.venv/Scripts/python.exe",
+      "args": [
+        "C:/Users/aibek/Desktop/ShoppingList/mcp_server/server.py"
+      ],
+      "env": {}
+    }
+  }
+}
