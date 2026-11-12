@@ -1,0 +1,22 @@
+# Виртуальное окружение (создаётся заново: python -m venv .venv)
+.venv/
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+
+# Локальная база с данными пользователя (создаётся сама при запуске)
+/shopping.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Личные настройки Claude Code (общие — .mcp.json, .claude/skills/, .claude/launch.json — коммитятся)
+.claude/settings.local.json
+
+# Редакторы и ОС
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
