@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Список покупок</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar">
+        <h1>Списки покупок</h1>
+        <form id="new-list-form" class="stack" novalidate>
+            <div class="row">
+                <input id="new-list-name" type="text" placeholder="Новый список" maxlength="100" autocomplete="off">
+                <button type="submit">Создать</button>
+            </div>
+            <p class="error" id="new-list-error" hidden></p>
+        </form>
+        <ul id="lists" class="lists"></ul>
+        <p id="lists-empty" class="muted" hidden>Списков пока нет.</p>
+    </aside>
+
+    <main class="content">
+        <p id="placeholder" class="muted placeholder">Выберите список слева или создайте новый.</p>
+
+        <section id="list-view" hidden>
+            <header class="list-header">
+                <h2 id="list-title"></h2>
+                <form id="rename-form" class="row" hidden novalidate>
+                    <input id="rename-input" type="text" maxlength="100" autocomplete="off">
+                    <button type="submit">Сохранить</button>
+                    <button type="button" id="rename-cancel" class="secondary">Отмена</button>
+                </form>
+                <div class="actions" id="list-actions">
+                    <button type="button" id="rename-btn" class="secondary">Переименовать</button>
+                    <button type="button" id="delete-list-btn" class="danger">Удалить список</button>
+                </div>
+            </header>
+            <p class="error" id="rename-error" hidden></p>
+
+            <form id="add-item-form" class="add-item" novalidate>
+                <label>Название
+                    <input id="item-name" type="text" maxlength="100" autocomplete="off">
+                </label>
+                <label>Количество
+                    <input id="item-qty" type="number" min="1" step="1" value="1">
+                </label>
+                <label>Цена (необязательно)
+                    <input id="item-price" type="text" inputmode="decimal" placeholder="0.00">
+                </label>
+                <button type="submit">Добавить</button>
+            </form>
+            <ul class="error-list" id="item-errors" hidden></ul>
+            <p class="notice" id="item-notice" hidden></p>
+
+            <table class="items">
+                <thead>
+                <tr>
+                    <th class="col-check">Куплено</th>
+                    <th>Товар</th>
+                    <th class="num">Кол-во</th>
+                    <th class="num">Цена</th>
+                    <th class="col-del"></th>
+                </tr>
+                </thead>
+                <tbody id="items"></tbody>
+                <tfoot>
+                <tr><td colspan="5" id="items-empty" class="muted" hidden>В списке пока нет товаров.</td></tr>
+                </tfoot>
+            </table>
+
+            <div class="totals" id="totals"></div>
+        </section>
+    </main>
+</div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

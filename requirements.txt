@@ -1,0 +1,3 @@
+Flask==3.1.3
+# MCP-сервер для Claude Code (mcp_server/server.py); веб-приложению не нужен
+mcp==2.3.0
